@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\storePacienteRequest;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        //
+        $pacientes = Paciente::all();
+        return view('pages.pacientes.index', compact('pacientes'));
     }
 
     /**
@@ -24,7 +26,7 @@ class PacienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.pacientes.create');
     }
 
     /**
@@ -33,9 +35,9 @@ class PacienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(storePacienteRequest $request)
     {
-        //
+        $validated = $request->validated();
     }
 
     /**
@@ -46,7 +48,7 @@ class PacienteController extends Controller
      */
     public function show(Paciente $paciente)
     {
-        //
+        
     }
 
     /**

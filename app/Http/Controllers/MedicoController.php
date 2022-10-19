@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\storeMedicoRequest;
 use App\Models\Medico;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class MedicoController extends Controller
      */
     public function index()
     {
-        //
+        $medicos = Medico::all();
+        return view('pages.medicos.index', compact('medicos'));
     }
 
     /**
@@ -33,9 +35,9 @@ class MedicoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(storeMedicoRequest $request)
     {
-        //
+        $validated = $request->validated();
     }
 
     /**

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('agendamentos', function (Blueprint $table) {
             $table->id();
-            $table->string('');
+            $table->string('agenndamentos');
             $table->timestamps();
         });
     }
