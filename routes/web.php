@@ -7,13 +7,7 @@ use App\Http\Controllers\{
 };
 use Illuminate\Support\Facades\Route;
 
-
-
-Route::get('/', function () {
-    return redirect('home');
-});
-
-Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('/paciente', PacienteController::class);
 Route::resource('/medico', MedicoController::class);
