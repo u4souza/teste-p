@@ -24,7 +24,7 @@ class storeMedicoRequest extends FormRequest
     public function rules()
     {
         return [
-            
+         
         ];
     }
 }

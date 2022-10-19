@@ -17,6 +17,7 @@ class MedicoController extends Controller
     {
         $medicos = Medico::all();
         return view('pages.medicos.index', compact('medicos'));
+        
     }
 
     /**
@@ -26,7 +27,7 @@ class MedicoController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.medicos.create');
     }
 
     /**
@@ -35,9 +36,29 @@ class MedicoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(storeMedicoRequest $request)
+    public function store(Request $request, $id)
     {
-        $validated = $request->validated();
+        $regras = [
+            'nome' => 'required',
+            'especialidade' => 'required|min:11|max:14',
+            'crm' => 'required',
+        ];
+
+        $mensagens = [
+            'nome.required' => 'O campo NOME é obrigatório',
+            'especialidade.required' => 'O campo DOCUMENTO é obrigatório',
+            'crm.required' => 'Precisa-s preencher o campo'
+        ];
+
+        $request->validate($regras, $mensagens);
+
+        $data = $request->all();
+        $cliente = new Medico;
+        $cliente->nome           = $data['nome'];
+        $cliente->especialidade  = $data['especialidade'];
+        $cliente->crm            = $data['crm'];
+        $cliente->save();
+        
     }
 
     /**
@@ -46,9 +67,9 @@ class MedicoController extends Controller
      * @param  \App\Models\Medico  $medico
      * @return \Illuminate\Http\Response
      */
-    public function show(Medico $medico)
+    public function show(Medico $medico, $id)
     {
-        //
+      
     }
 
     /**
@@ -57,9 +78,9 @@ class MedicoController extends Controller
      * @param  \App\Models\Medico  $medico
      * @return \Illuminate\Http\Response
      */
-    public function edit(Medico $medico)
+    public function edit($id)
     {
-        //
+        return view('medico.edit');
     }
 
     /**

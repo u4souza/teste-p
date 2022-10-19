@@ -19,10 +19,10 @@
 
               <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{redirect('')}}">Agendamentos</a>
+                  <a class="nav-link" href="{{Route('agendamento.index')}}">Agendamentos</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Médico</a>
+                  <a class="nav-link" href="{{Route('medico.index')}}">Médico</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{Route('paciente.index')}}">Pacientes</a>

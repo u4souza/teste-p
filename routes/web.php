@@ -3,7 +3,8 @@
 use App\Http\Controllers\{
     HomeController,
     PacienteController,
-    MedicoController
+    MedicoController,
+    AgendamentoController
 };
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,7 @@ Route::controller(PacienteController::class)->group(function(){
 });
 
 //MEDICOS
-Route::controller(MedicosController::class)->group(function(){
+Route::controller(MedicoController::class)->group(function(){
     Route::get('medico', 'index')->name('medico.index');
     Route::post('medico', 'store')->name('medico.store');
     Route::get('medico/create', 'create')->name('medico.create');
